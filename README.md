@@ -95,27 +95,34 @@ Handling missing value dengan menggunakan imputer untuk mengisi nilai null.
 -TF-IDF
 teknik dalam pemrosesan teks yang digunakan untuk menilai seberapa penting sebuah kata dalam suatu dokumen relatif terhadap kumpulan dokumen lainnya (corpus).
 
-## Modeling
+## Modeling and Result
 Model yang saya gunakan pada proyek ini yaitu:
 - Collaborative Filtering 
-Metode ini memanfaatkan data dari pengguna lain untuk memberikan rekomendasi. Dalam hal ini, model SVD (Singular Value Decomposition) digunakan untuk memprediksi rating buku berdasarkan pola rating dari pengguna lain.
+Metode ini memanfaatkan data dari pengguna lain untuk memberikan rekomendasi. Dalam hal ini, model SVD (Singular Value Decomposition) digunakan untuk memprediksi rating buku berdasarkan pola rating dari pengguna lain. dengan hasil prediksi seperti gambar dibawah:
+
+   <img width="786" alt="res1" src="https://github.com/user-attachments/assets/bd71d6b2-27fc-4125-96b7-91c9c537414a">
+
 
 - Content-Based Filtering
-Metode ini memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi. Dalam hal ini, Menggunakan cosine similarity digunakan untuk untuk menghitung kemiripan antar buku.
+Metode ini memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi. Dalam hal ini, Menggunakan cosine similarity digunakan untuk untuk menghitung kemiripan antar buku. dengan hasil prediksi seperti gambar dibawah:
+
+   <img width="688" alt="res2" src="https://github.com/user-attachments/assets/cdc1742e-8474-402a-833d-a873c18e6178">
+
 
 ## Evaluation
 1. Root Mean Squared Error (RMSE)
 RMSE adalah turunan dari MSE. Seperti namanya, RMSE adalah akar kuadrat dari MSE. RMSE menghitung rata-rata dari selisih kuadrat antara nilai prediksi dan nilai aktual kemudian diambil akar kuadratnya. seperti rumus dibawah ini:
 
-![rmse-1](https://github.com/user-attachments/assets/617f16a0-50d0-4306-b09a-19a983992ba5)
+   ![rmse-1](https://github.com/user-attachments/assets/617f16a0-50d0-4306-b09a-19a983992ba5)
 
-Semakin kecil nilai RMSE, semakin baik kualitas model tersebut.
+   Semakin kecil nilai RMSE, semakin baik kualitas model tersebut.
+
 2. Mean Absolute Error (MAE)
 MAE adalah salah satu metode evaluasi yang umum digunakan dalam data science. MAE menghitung rata-rata dari selisih absolut antara nilai prediksi dan nilai aktual. seperti rumus dibawah ini: 
 
-![mae-formula](https://github.com/user-attachments/assets/c8505139-840b-476f-b09b-0671a0680f4f)
+   ![mae-formula](https://github.com/user-attachments/assets/c8505139-840b-476f-b09b-0671a0680f4f)
 
-Dengan kata lain, MAE menghitung berapa rata-rata kesalahan absolut dalam prediksi. Semakin kecil nilai MAE, semakin baik kualitas model tersebut.
+   Dengan kata lain, MAE menghitung berapa rata-rata kesalahan absolut dalam prediksi. Semakin kecil nilai MAE, semakin baik kualitas model tersebut.
 
 Berdasarkan nilai metrik RMSE sebesar 3.6319 dan MAE sebesar 3.1951, dapat disimpulkan bahwa model memiliki akurasi prediksi yang moderat dengan rata-rata kesalahan sekitar 3 satuan dari nilai sebenarnya. 
 
