@@ -16,9 +16,9 @@ Proyek ini bertujuan untuk merancang sistem rekomendasi yang secara efektif memb
 - Mengembangkan sistem rekomendasi buku yang dapat memberikan saran yang relevan berdasarkan riwayat atau preferensi pengguna.
 
 ### Solution statements
-- Sistem rekomendasi akan menggunakan data seperti rating, genre, dan preferensi pengguna untuk menghasilkan rekomendasi yang dipersonalisasi.
+- Menggunakan collaborative filtering yang memanfaatkan data dari pengguna lain untuk memberikan rekomendasi.
 
-- Menggunakan collaborative filtering dan content-based filtering. untuk mencari metode terbaik dalam pengembangan sistem rekomendasi.
+- Menggunakan content-based filtering yang memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi.
 
 - Sebagai metrik pembanding, menggunakan beberapa metrik evaluasi antara lain RMSE dan MSE untuk melakukan evaluasi kualitatif terhadap rekomendasi yang dihasilkan untuk memastikan relevansi.
 
@@ -27,29 +27,61 @@ data yang digunakan adalah Book 'Book Recommendation Dataset' yang bersumber di 
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 Dataset Book-Crossing terdiri dari 3 berkas.
+
 1. Pengguna
-a. User-ID : ID pengguna
-b. Location: lokasi pengguna
-c. Age : umur pengguna
+   
+   a. User-ID : ID pengguna.
+   
+   b. Location: lokasi pengguna.
+   
+   c. Age : umur pengguna.
 
 2. Buku
-a. Book-Title : judul buku
-b. Book-Author: penulis buku
-c. Year-Of-Publication : tahun buku di cetak
-d. Publisher : pencetak buku
-e. Image-URL-S :  gambar sampul berukuran kecil
-f. Image-URL-M : gambar sampul berukuran sedang
-g. Image-URL-L : gambar sampul berukuran besar
-h. ISBN(International Standard Book Number) : nomor unik untuk identifikasi buku
+   
+   a. Book-Title : judul buku.
+   
+   b. Book-Author: penulis buku.
+   
+   c. Year-Of-Publication : tahun buku di cetak.
+   
+   d. Publisher : pencetak buku.
+   
+   e. Image-URL-S :  gambar sampul berukuran kecil.
+   
+   f. Image-URL-M : gambar sampul berukuran sedang.
+   
+   g. Image-URL-L : gambar sampul berukuran besar.
+   
+   h. ISBN(International Standard Book Number) : nomor unik untuk identifikasi buku.
 
 3. Rating:
-a. User-ID : ID pengguna
-b. ISBN(International Standard Book Number) : nomor unik untuk identifikasi buku
-c. Book-Rating : rating sebuah buku
-Berisi informasi tentang rating buku. Rating ( Book-Rating) bisa eksplisit, dinyatakan dalam skala 1-10 (nilai yang lebih tinggi menunjukkan apresiasi yang lebih tinggi), atau implisit, dinyatakan dalam skala 0.
+     
+   a. User-ID : ID pengguna.
+   
+   b. ISBN(International Standard Book Number) : nomor unik untuk identifikasi buku.
+   
+   c. Book-Rating : rating sebuah buku.
 
 ### Exploratory Data Analysis
 pada proyek ini terdapat beberapa visualisasi seperti pada dibawah yaitu Distribusi rating buku.
+
+visualisasi Distribusi Rating
+
+![disr](https://github.com/user-attachments/assets/2323bdc4-a463-4118-a1d8-19cb5992cc59)
+
+berdasarkan gambar diatas bahwa distribusi ratingnya right skewed dengan paling banyak rating 1.
+
+visualisasi Distribusi tahun publikasi
+
+![disp](https://github.com/user-attachments/assets/984da831-4f32-41f4-9638-3d909095f3c2)
+
+berdasarkan gambar diatas bahwa distribusinya left skewed dengan kebanyakan tahun publikasi pada tahun 1990 sampai tahun 2000.
+
+visualisasi outliers age dan rating
+
+![box](https://github.com/user-attachments/assets/43b9e3a0-0d7e-4900-8d25-1226e0612d1e)
+
+berdasarkan gambar diatas bahwa terdapat banyak nilai outliers pada age.
 
 ## Data Preparation
 Dalam data preparation, dilakukan beberapa hal proses sebelum memasukkan data ke model latih yaitu:
@@ -60,23 +92,32 @@ Handling outlier berfungsi untuk meningkatkan akurasi, mencegah overfitting, dan
 - Handling missing value
 Handling missing value dengan menggunakan imputer untuk mengisi nilai null.
 
+-TF-IDF
+teknik dalam pemrosesan teks yang digunakan untuk menilai seberapa penting sebuah kata dalam suatu dokumen relatif terhadap kumpulan dokumen lainnya (corpus).
 
 ## Modeling
 Model yang saya gunakan pada proyek ini yaitu:
 - Collaborative Filtering 
-Metode ini memanfaatkan data dari pengguna lain untuk memberikan rekomendasi. Dalam hal ini, model SVD (Singular Value Decomposition) digunakan untuk memprediksi rating buku berdasarkan pola rating dari pengguna lain. Berikut ini adalah hasil rekomendasi yang diperoleh:
-
-
-foto rekom
+Metode ini memanfaatkan data dari pengguna lain untuk memberikan rekomendasi. Dalam hal ini, model SVD (Singular Value Decomposition) digunakan untuk memprediksi rating buku berdasarkan pola rating dari pengguna lain.
 
 - Content-Based Filtering
-Metode ini memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi. Dalam hal ini, Menggunakan cosine similarity digunakan untuk untuk menghitung kemiripan antar buku. Berikut ini adalah hasil rekomendasi yang diperoleh:
-
-
+Metode ini memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi. Dalam hal ini, Menggunakan cosine similarity digunakan untuk untuk menghitung kemiripan antar buku.
 
 ## Evaluation
-Metrik evaluasi yang digunakan adalah Confusion Matrix yang merupakan sebuah teknik yang digunakan dalam data mining dan machine learning untuk menghitung seberapa baik sebuah model dapat memprediksi label dari sebuah data seperti contoh pada gambar dibawah.
+1. Root Mean Squared Error (RMSE)
+RMSE adalah turunan dari MSE. Seperti namanya, RMSE adalah akar kuadrat dari MSE. RMSE menghitung rata-rata dari selisih kuadrat antara nilai prediksi dan nilai aktual kemudian diambil akar kuadratnya. seperti rumus dibawah ini:
 
+![rmse-1](https://github.com/user-attachments/assets/617f16a0-50d0-4306-b09a-19a983992ba5)
+
+Semakin kecil nilai RMSE, semakin baik kualitas model tersebut.
+2. Mean Absolute Error (MAE)
+MAE adalah salah satu metode evaluasi yang umum digunakan dalam data science. MAE menghitung rata-rata dari selisih absolut antara nilai prediksi dan nilai aktual. seperti rumus dibawah ini: 
+
+![mae-formula](https://github.com/user-attachments/assets/c8505139-840b-476f-b09b-0671a0680f4f)
+
+Dengan kata lain, MAE menghitung berapa rata-rata kesalahan absolut dalam prediksi. Semakin kecil nilai MAE, semakin baik kualitas model tersebut.
+
+Berdasarkan nilai metrik RMSE sebesar 3.6319 dan MAE sebesar 3.1951, dapat disimpulkan bahwa model memiliki akurasi prediksi yang moderat dengan rata-rata kesalahan sekitar 3 satuan dari nilai sebenarnya. 
 
 ## Daftar Pustaka
 [1] Priyanka, Bendale. (2023). General Purpose Recommendation System. International Journal of Advanced Research in Science, Communication and Technology, 278-280. doi: 10.48175/ijarsct-9040
