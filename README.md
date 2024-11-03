@@ -6,7 +6,7 @@ Maraknya konten digital telah menyebabkan banyaknya pilihan bagi konsumen, sehin
 
 Dalam konteks buku, sistem rekomendasi memainkan peran penting dalam membantu pengguna menavigasi koleksi yang besar, menemukan buku baru, dan menemukan kembali buku-buku favorit. Sistem rekomendasi buku biasanya menggunakan collaborative filtering, content-based filtering, atau pendekatan hibrida untuk menganalisis preferensi dan interaksi pengguna. Penyaringan kolaboratif, khususnya, mengidentifikasi pola dalam data perilaku pengguna, menggunakan kemiripan di antara pengguna atau item untuk memprediksi rekomendasi. Teknik ini telah terbukti sangat efektif, terutama ketika umpan balik eksplisit, seperti peringkat, atau umpan balik implisit, seperti riwayat pembelian, tersedia[2].
 
-Proyek ini bertujuan untuk merancang sistem rekomendasi yang secara efektif membantu pengguna dalam menemukan buku-buku yang sesuai dengan minat mereka, menggunakan pendekatan collaborative filtering dengan content-based filtering untuk dikomparasi, dan mengevaluasi kinerja kedua model tersebut untuk memastikan rekomendasi yang relevan dan menarik.
+Proyek ini bertujuan untuk merancang sistem rekomendasi yang secara efektif membantu pengguna dalam menemukan buku-buku yang sesuai dengan minat mereka, menggunakan pendekatan collaborative filtering, dan mengevaluasi kinerja  model tersebut untuk memastikan rekomendasi yang relevan dan menarik.
  
 ## Business Understanding
 ### Problem Statements
