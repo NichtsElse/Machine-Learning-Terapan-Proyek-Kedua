@@ -18,8 +18,6 @@ Proyek ini bertujuan untuk merancang sistem rekomendasi yang secara efektif memb
 ### Solution statements
 - Menggunakan collaborative filtering yang memanfaatkan data dari pengguna lain untuk memberikan rekomendasi.
 
-- Menggunakan content-based filtering yang memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi.
-
 - Sebagai metrik pembanding, menggunakan beberapa metrik evaluasi antara lain RMSE dan MSE untuk melakukan evaluasi kualitatif terhadap rekomendasi yang dihasilkan untuk memastikan relevansi.
 
 ## Data Understanding
@@ -92,22 +90,15 @@ Handling outlier berfungsi untuk meningkatkan akurasi, mencegah overfitting, dan
 - Handling missing value
 Handling missing value dengan menggunakan imputer untuk mengisi nilai null.
 
--TF-IDF
-teknik dalam pemrosesan teks yang digunakan untuk menilai seberapa penting sebuah kata dalam suatu dokumen relatif terhadap kumpulan dokumen lainnya (corpus).
+- Train-Test-Split
+proses ini berguna untuk membagi dataset menjadi data training dan testing pembagian data pada proyek ini ada 80:20.
 
 ## Modeling and Result
 Model yang saya gunakan pada proyek ini yaitu:
 - Collaborative Filtering 
-Metode ini memanfaatkan data dari pengguna lain untuk memberikan rekomendasi. Dalam hal ini, model SVD (Singular Value Decomposition) digunakan untuk memprediksi rating buku berdasarkan pola rating dari pengguna lain. dengan hasil prediksi seperti gambar dibawah:
+Metode SVD (Singular Value Decomposition) adalah teknik dekomposisi matriks yang digunakan dalam sistem rekomendasi Collaborative Filtering, di mana data dari pengguna lain dimanfaatkan untuk memberikan rekomendasi yang lebih relevan. Dengan memecah matriks pengguna-item menjadi matriks singular value, left singular vector, dan right singular vector, SVD dapat menemukan pola laten dalam data. Keunggulan SVD meliputi akurasi yang tinggi, kemampuannya mengurangi dimensi data sehingga meningkatkan efisiensi komputasi, serta penanganan yang baik terhadap data sparse. Model ini juga skalabel dengan pengaturan parameter seperti n_factors (default 100) dan n_epochs (default 20). Namun, SVD memiliki beberapa kelemahan, seperti sensitivitas terhadap data noise, kebutuhan komputasi yang tinggi, dan potensi overfitting jika parameter tidak diatur dengan tepat. dengan hasil prediksi seperti gambar dibawah:
 
    <img width="786" alt="res1" src="https://github.com/user-attachments/assets/bd71d6b2-27fc-4125-96b7-91c9c537414a">
-
-
-- Content-Based Filtering
-Metode ini memanfaatkan data karakteristik/konten dari buku(judul, penulis, penerbit) untuk memberikan rekomendasi. Dalam hal ini, Menggunakan cosine similarity digunakan untuk untuk menghitung kemiripan antar buku. dengan hasil prediksi seperti gambar dibawah:
-
-   <img width="688" alt="res2" src="https://github.com/user-attachments/assets/cdc1742e-8474-402a-833d-a873c18e6178">
-
 
 ## Evaluation
 1. Root Mean Squared Error (RMSE)
